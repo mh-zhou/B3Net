@@ -108,7 +108,7 @@ Our code builds on [BridgeNet](https://github.com/Evergreen0929/EEMTL/tree/main/
 We also thank the [TaskPrompter](https://github.com/prismformore/Multi-Task-Transformer/tree/main/TaskPrompter)
 authors for releasing their code.
 
-We sincerely thank the reviewers for their thoughtful guidance and encouragement throughout the peer-review process. We deeply appreciate the time and care they devoted to our work, and their constructive feedback has greatly improved the quality of this manuscript.
+We sincerely thank the editors and reviewers for their thoughtful guidance and encouragement throughout the peer-review process. We deeply appreciate the time and care they devoted to our work, and their constructive feedback has greatly improved the quality of this manuscript.
 
 ## Publication
 
