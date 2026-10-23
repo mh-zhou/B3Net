@@ -78,7 +78,7 @@ Boundary predictions are saved for ODS-F evaluation with
 
 ## Models and results
 
-Paper-reported results for B³-Net / InternImage-L. The checkpoints were saved at
+Paper-reported results for B³-Net. The checkpoints were saved at
 the final training iteration and are provided for visualization.
 
 | Dataset | Seg. mIoU | Depth RMSE | Parts mIoU | Sal. maxF | Normal mErr | Edge ODS-F | Checkpoint |
