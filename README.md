@@ -13,8 +13,7 @@ B³-Net combines a Precision Field Estimator (PFE), a Posterior Bridge Operator
 
 ## Training
 
-<details>
-<summary>Environment and datasets</summary>
+### Environment and datasets
 
 Use the BridgeNet environment with Python 3.8 and CUDA 11.7:
 
@@ -49,8 +48,6 @@ export B3_DATA_ROOT="$PWD/datasets"
 `B3_DATA_ROOT` contains `NYUDv2/` and `PASCALContext/`; paths are configured in
 [`configs/mypath.py`](configs/mypath.py).
 
-</details>
-
 Train InternImage-L on one GPU:
 
 ```bash
@@ -62,8 +59,7 @@ Validation and checkpoint saving run every 1,000 iterations and at the final
 iteration. An existing training checkpoint resumes the run; change `version_name`
 for a new run. The paper experiments used NVIDIA A100 GPUs.
 
-<details>
-<summary>Other backbones</summary>
+### Other backbones
 
 Pass a configuration to select another backbone:
 
@@ -75,8 +71,6 @@ bash run_PASCALContext.sh configs/pascal/vit_l.yaml
 InternImage backbone weights download automatically. ViT-B requires the pretrained
 file named in [`utils/common_config.py`](utils/common_config.py) in the PyTorch
 checkpoint cache. W&B logging is disabled by default.
-
-</details>
 
 Boundary predictions are saved for ODS-F evaluation with
 [SEISM](https://github.com/jponttuset/seism) or the
