@@ -1,0 +1,52 @@
+version_name: b3_pascal_vit_b
+out_dir: ./outputs/
+
+train_db_name: PASCALContext
+val_db_name: PASCALContext
+trBatch: 4
+valBatch: 6
+nworkers: 2
+ignore_index: 255
+
+intermediate_supervision: true
+val_interval: 1000
+epochs: 999999
+max_iter: 45000
+optimizer: adamW
+optimizer_kwargs:
+  lr: 1.5e-05
+  betas: {a: 0.9, b: 0.999}
+  weight_decay: 0.03
+scheduler: poly
+grad_clip_param: {max_norm: 5, norm_type: 2}
+
+model: B3Net
+backbone: vitB
+head: mlp
+embed_dim: 512
+mtt_resolution_downsample_rate: 2
+PRED_OUT_NUM_CONSTANT: 64
+REFINE_DEPTH: [12, 12, 12]
+DILATED_RATIO:
+  - [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5]
+  - [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5]
+  - [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5]
+SQUEEZE_RATIO:
+  - [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+  - [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+  - [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+
+task_dictionary:
+  include_semseg: true
+  include_human_parts: true
+  include_sal: true
+  include_edge: true
+  include_normals: true
+  edge_w: 0.98
+loss_kwargs:
+  loss_weights:
+    semseg: 1.0
+    human_parts: 2.0
+    sal: 3.0
+    normals: 5.0
+    edge: 20.0

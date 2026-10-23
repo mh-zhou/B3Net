@@ -1,0 +1,61 @@
+version_name: b3_pascal_internimage_l_40k
+out_dir: ./outputs/
+
+train_db_name: PASCALContext
+val_db_name: PASCALContext
+trBatch: 4
+valBatch: 6
+nworkers: 2
+ignore_index: 255
+
+intermediate_supervision: true
+val_interval: 1000
+epochs: 999999
+max_iter: 40000
+
+optimizer: adamW
+optimizer_kwargs:
+  lr: 0.00003
+  betas:
+    a: 0.9
+    b: 0.999
+  weight_decay: 0.03
+
+scheduler: poly
+
+model: B3Net
+backbone: intern_l
+head: mlp
+embed_dim: 512
+mtt_resolution_downsample_rate: 1
+PRED_OUT_NUM_CONSTANT: 64
+
+REFINE_DEPTH: [12, 12, 12]
+DILATED_RATIO: [
+  [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5],
+  [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5],
+  [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5]
+]
+SQUEEZE_RATIO: [
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+]
+
+task_dictionary:
+  include_semseg: true
+  include_human_parts: true
+  include_sal: true
+  include_edge: true
+  include_normals: true
+  edge_w: 0.95
+
+loss_kwargs:
+  loss_weights:
+    semseg: 1.0
+    human_parts: 2.0
+    sal: 3.0
+    edge: 20.0
+    normals: 5.0
+
+grad_clip_param: {'max_norm': 5, 'norm_type': 2}
