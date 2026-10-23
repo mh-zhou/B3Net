@@ -63,26 +63,11 @@ iteration. An existing training checkpoint resumes the run; change `version_name
 for a new run. The paper experiments used NVIDIA A100 GPUs.
 
 <details>
-<summary>Configurations and other backbones</summary>
+<summary>Other backbones</summary>
 
-| Dataset | Configuration | Batch | Updates | LR | Weight decay |
-|:---|:---|---:|---:|---:|---:|
-| NYUD-v2 | [Default](configs/nyud/internimage_l.yaml) | 3 | 26K | 5e-5 | 0.03 |
-| NYUD-v2 | [20K](configs/nyud/variants/internimage_l_20k.yaml) | 4 | 20K | 5e-5 | 0.03 |
-| PASCAL-Context | [Default](configs/pascal/internimage_l.yaml) | 4 | 45K | 3e-5 | 0.03 |
-| PASCAL-Context | [40K](configs/pascal/variants/internimage_l_40k.yaml) | 4 | 40K | 3e-5 | 0.03 |
-
-These InternImage-L configurations use AdamW (betas 0.9, 0.999), polynomial decay
-(power 0.9), validation batch size 6, and 12 refinement blocks per stage. Task-loss
-weights are fixed, with intermediate supervision; gradient clipping norms are 10
-for NYUD-v2 and 5 for PASCAL-Context. The shorter schedules retain the default
-model and optimizer settings, with the batch sizes and update budgets listed above.
-
-Pass a configuration to select a shorter schedule or another backbone:
+Pass a configuration to select another backbone:
 
 ```bash
-bash run_nyud.sh configs/nyud/variants/internimage_l_20k.yaml
-bash run_PASCALContext.sh configs/pascal/variants/internimage_l_40k.yaml
 bash run_nyud.sh configs/nyud/vit_b.yaml
 bash run_PASCALContext.sh configs/pascal/vit_l.yaml
 ```
