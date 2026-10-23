@@ -15,7 +15,7 @@ B³-Net combines a Precision Field Estimator (PFE), a Posterior Bridge Operator
 
 ### Environment and datasets
 
-Use the BridgeNet environment with Python 3.8 and CUDA 11.7:
+Use the environment with Python 3.8 and CUDA 11.7:
 
 ```bash
 conda create -n b3 python=3.8
