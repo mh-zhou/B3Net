@@ -1,5 +1,5 @@
 # Copyright 2021 Ross Wightman
-# Licensed under Apache 2.0; see THIRD_PARTY_NOTICES.txt.
+# Licensed under Apache 2.0; see License.
 import math
 import logging
 from functools import partial
