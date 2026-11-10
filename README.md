@@ -113,7 +113,7 @@ We sincerely thank the editors and reviewers for their thoughtful guidance and e
 ## Publication
 
 M. Zhou and L. Yang, "B3-Net: Controlled Posterior Bridge Learning for Multi-Task Dense Prediction," in IEEE Transactions on Circuits and Systems for Video Technology, doi: 10.1109/TCSVT.2026.3751332.
-keywords: {Bridges;Multitasking;Decoding;Learning (artificial intelligence);Modeling;Estimation;Context;Training;Dispatching;Semantic segmentation;Multi-task learning;dense prediction;posterior bridge;reliability estimation;feature propagation},
+
 
 @ARTICLE{11782808,
   author={Zhou, Meihua and Yang, Li},
